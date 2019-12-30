@@ -1,0 +1,383 @@
+{
+    "children": [{
+        "hostName": "payflux-40-5130",
+        "data": {
+            "hostName": "payflux-40-5130",
+            "bizFailLog": {
+                "accountId": "",
+                "appName": "",
+                "context": {},
+                "errorCode": "",
+                "errorCodeMap": {},
+                "logTime": "",
+                "objectId": "",
+                "objectType": "",
+                "objectTypeMap": {},
+                "penetrateAttribute": "",
+                "reportStatus": "",
+                "responseTime": 0,
+                "rpcId": "",
+                "traceId": ""
+            },
+            "bizType": "(?)",
+            "chainHealthMap": {},
+            "bizCodeMap": {},
+            "targetAppName": "payflux",
+            "bizCode": "(?)",
+            "bizInfoLog": {
+                "appName": "",
+                "bizExtends": {},
+                "bizId": "",
+                "bizIdMap": {},
+                "costTime": 0,
+                "errorCodeMap": {},
+                "logTime": "",
+                "penetrateAttribute": "",
+                "resMap": {},
+                "result": "",
+                "resultCode": [],
+                "resultCodeDesc": [],
+                "rpcId": "",
+                "traceId": "",
+                "userId": ""
+            },
+            "errorCode": "(?)",
+            "calledRate": 0,
+            "type": "mvc",
+            "targetBizLogInfoMap": {},
+            "penetrate": "(?)",
+            "basicInfo": "mvc#mobilegw#/mgw.htm#POST",
+            "result": "200",
+            "resMap": {
+                "200": 1
+            },
+            "twoCodeHealthMap": {},
+            "zone": "RZ24B",
+            "costTime": 405,
+            "originalRpcId": "0",
+            "rpcId": "0",
+            "workspaceId": "online",
+            "bizLogInfoMap": {},
+            "traceId": "0bea4b0815561875390729000e9077",
+            "additonalBizLogMap": {},
+            "errMap": {},
+            "method": "POST",
+            "appName": "mobilegw",
+            "ip": "11.234.148.151",
+            "count": 1,
+            "invokeInfo": "SOFA_MVC",
+            "responseSize": 567,
+            "ldc": "payflux-40-5130:RZ24B",
+            "bizSuccessLog": {
+                "accountId": "",
+                "appName": "",
+                "context": {},
+                "errorCode": "",
+                "errorCodeMap": {},
+                "logTime": "",
+                "objectId": "",
+                "objectType": "",
+                "objectTypeMap": {},
+                "penetrateAttribute": "",
+                "reportStatus": "",
+                "responseTime": 0,
+                "rpcId": "",
+                "traceId": ""
+            },
+            "url": "/mgw.htm",
+            "logTime": "2019-04-25 18:18:59.477",
+            "bizTypeMap": {
+                "(?)": 1
+            },
+            "tenantId": "main",
+            "requestSize": 785
+        },
+        "method": "POST",
+        "appName": "payflux",
+        "ip": "11.234.148.151 ( payflux-40-5130 ) ",
+        "type": "mvc",
+        "url": "/mgw.htm",
+        "result": "200",
+        "resultDetail": "200",
+        "children": [{
+            "hostName": "payflux-40-5130",
+            "data": {
+                "targetAppName": "mobilecashier",
+                "bizCode": "(?)",
+                "bizInfoLog": {
+                    "appName": "",
+                    "bizExtends": {},
+                    "bizId": "",
+                    "bizIdMap": {},
+                    "costTime": 0,
+                    "errorCodeMap": {},
+                    "logTime": "",
+                    "penetrateAttribute": "",
+                    "resMap": {},
+                    "result": "",
+                    "resultCode": [],
+                    "resultCodeDesc": [],
+                    "rpcId": "",
+                    "traceId": "",
+                    "userId": ""
+                },
+                "errorCode": "(?)",
+                "calledRate": 0,
+                "type": "rpc",
+                "targetBizLogInfoMap": {},
+                "twoCodeHealthMap": {},
+                "zone": "RZ24B",
+                "costTime": 401,
+                "rpcId": "0.2",
+                "bizLogInfoMap": {},
+                "traceId": "0bea4b0815561875390729000e9077",
+                "invokeType": "SYNC",
+                "cityMap": {
+                    "sh": 1
+                },
+                "additonalBizLogMap": {},
+                "ip": "11.234.148.151",
+                "count": 1,
+                "invokeInfo": "TR.SYNC",
+                "responseSize": 1054,
+                "invokeMap": {
+                    "SYNC": 1
+                },
+                "bizSuccessLog": {
+                    "accountId": "",
+                    "appName": "",
+                    "context": {},
+                    "errorCode": "",
+                    "errorCodeMap": {},
+                    "logTime": "",
+                    "objectId": "",
+                    "objectType": "",
+                    "objectTypeMap": {},
+                    "penetrateAttribute": "",
+                    "reportStatus": "",
+                    "responseTime": 0,
+                    "rpcId": "",
+                    "traceId": ""
+                },
+                "methodMap": {
+                    "doDispatch": 1
+                },
+                "targetIdc": "em14",
+                "requestSize": 9268,
+                "hostName": "payflux-40-5130",
+                "bizFailLog": {
+                    "accountId": "",
+                    "appName": "",
+                    "context": {},
+                    "errorCode": "",
+                    "errorCodeMap": {},
+                    "logTime": "",
+                    "objectId": "",
+                    "objectType": "",
+                    "objectTypeMap": {},
+                    "penetrateAttribute": "",
+                    "reportStatus": "",
+                    "responseTime": 0,
+                    "rpcId": "",
+                    "traceId": ""
+                },
+                "bizType": "(?)",
+                "chainHealthMap": {
+                    "callCount": "841940591",
+                    "costTimeAvg": "175"
+                },
+                "bizCodeMap": {},
+                "idcMap": {
+                    "em14": 1
+                },
+                "penetrate": "(?)",
+                "zoneMap": {
+                    "RZ24B": 1
+                },
+                "basicInfo": "rpc#payflux#mobilecashier#com.alipay.payflux.spi.BizDispatchServiceFacade:1.0:mobilecashier_ccmc#doDispatch",
+                "result": "00",
+                "uid": "81",
+                "resMap": {
+                    "00": 1
+                },
+                "protocolName": "TR",
+                "serviceMap": {
+                    "com.alipay.payflux.spi.BizDispatchServiceFacade:1.0:mobilecashier_ccmc": 1
+                },
+                "originalRpcId": "0.2",
+                "targetZone": "RZ24B",
+                "protoMap": {
+                    "TR": 1
+                },
+                "workspaceId": "online",
+                "errMap": {},
+                "targetCity": "sh",
+                "appName": "payflux",
+                "methodName": "doDispatch",
+                "ldc": "payflux-40-5130:RZ24B",
+                "serviceName": "com.alipay.payflux.spi.BizDispatchServiceFacade:1.0:mobilecashier_ccmc",
+                "logTime": "2019-04-25 18:18:59.475",
+                "bizTypeMap": {
+                    "(?)": 1
+                },
+                "tenantId": "main",
+                "targetUrl": "11.151.131.224:12200",
+                "rpcType": "(?)"
+            },
+            "appName": "mobilecashier",
+            "ip": "client 11.234.148.151 ( payflux-40-5130 ) ",
+            "methodName": "doDispatch",
+            "type": "rpc",
+            "serviceName": "com.alipay.payflux.spi.BizDispatchServiceFacade:1.0:mobilecashier_ccmc",
+            "result": "00",
+            "zone": "RZ24B",
+            "resultDetail": "00",
+            "children": [{
+                "hostName": "mobilecashierccmc-40-6576",
+                "data": {
+                    "targetAppName": "cashiercore",
+                    "bizCode": "(?)",
+                    "bizInfoLog": {
+                        "appName": "",
+                        "bizExtends": {},
+                        "bizId": "",
+                        "bizIdMap": {},
+                        "costTime": 0,
+                        "errorCodeMap": {},
+                        "logTime": "",
+                        "penetrateAttribute": "",
+                        "resMap": {},
+                        "result": "",
+                        "resultCode": [],
+                        "resultCodeDesc": [],
+                        "rpcId": "",
+                        "traceId": "",
+                        "userId": ""
+                    },
+                    "errorCode": "(?)",
+                    "calledRate": 0,
+                    "type": "rpc",
+                    "targetBizLogInfoMap": {},
+                    "twoCodeHealthMap": {},
+                    "zone": "RZ24B",
+                    "costTime": 10,
+                    "rpcId": "0.2.5",
+                    "bizLogInfoMap": {},
+                    "traceId": "0bea4b0815561875390729000e9077",
+                    "invokeType": "SYNC",
+                    "cityMap": {
+                        "sh": 1
+                    },
+                    "additonalBizLogMap": {},
+                    "ip": "11.151.131.224",
+                    "count": 1,
+                    "invokeInfo": "TR.SYNC",
+                    "responseSize": 40758,
+                    "invokeMap": {
+                        "SYNC": 1
+                    },
+                    "bizSuccessLog": {
+                        "accountId": "",
+                        "appName": "",
+                        "context": {},
+                        "errorCode": "",
+                        "errorCodeMap": {},
+                        "logTime": "",
+                        "objectId": "",
+                        "objectType": "",
+                        "objectTypeMap": {},
+                        "penetrateAttribute": "",
+                        "reportStatus": "",
+                        "responseTime": 0,
+                        "rpcId": "",
+                        "traceId": ""
+                    },
+                    "methodMap": {
+                        "multiQuery": 1
+                    },
+                    "targetIdc": "em14",
+                    "requestSize": 3838,
+                    "hostName": "mobilecashierccmc-40-6576",
+                    "bizFailLog": {
+                        "accountId": "",
+                        "appName": "",
+                        "context": {},
+                        "errorCode": "",
+                        "errorCodeMap": {},
+                        "logTime": "",
+                        "objectId": "",
+                        "objectType": "",
+                        "objectTypeMap": {},
+                        "penetrateAttribute": "",
+                        "reportStatus": "",
+                        "responseTime": 0,
+                        "rpcId": "",
+                        "traceId": ""
+                    },
+                    "bizType": "(?)",
+                    "chainHealthMap": {
+                        "callCount": "3084096925",
+                        "costTimeAvg": "5"
+                    },
+                    "bizCodeMap": {},
+                    "idcMap": {
+                        "em14": 1
+                    },
+                    "penetrate": "(?)",
+                    "zoneMap": {
+                        "RZ24B": 1
+                    },
+                    "basicInfo": "rpc#mobilecashier#cashiercore#com.alipay.cashiercore.service.facade.api.CashierMultiQueryService:1.0#multiQuery",
+                    "result": "00",
+                    "uid": "81",
+                    "resMap": {
+                        "00": 1
+                    },
+                    "protocolName": "TR",
+                    "serviceMap": {
+                        "com.alipay.cashiercore.service.facade.api.CashierMultiQueryService:1.0": 1
+                    },
+                    "originalRpcId": "0.2.5",
+                    "targetZone": "RZ24B",
+                    "protoMap": {
+                        "TR": 1
+                    },
+                    "workspaceId": "online",
+                    "errMap": {},
+                    "targetCity": "sh",
+                    "appName": "mobilecashier",
+                    "methodName": "multiQuery",
+                    "ldc": "mobilecashierccmc-40-6576:RZ24B",
+                    "serviceName": "com.alipay.cashiercore.service.facade.api.CashierMultiQueryService:1.0",
+                    "logTime": "2019-04-25 18:18:59.088",
+                    "bizTypeMap": {
+                        "(?)": 1
+                    },
+                    "tenantId": "main",
+                    "targetUrl": "11.151.131.25:12200",
+                    "rpcType": "(?)"
+                },
+                "appName": "cashiercore",
+                "ip": "client 11.151.131.224 ( mobilecashierccmc-40-6576 ) ",
+                "methodName": "multiQuery",
+                "type": "rpc",
+                "serviceName": "com.alipay.cashiercore.service.facade.api.CashierMultiQueryService:1.0",
+                "result": "00",
+                "zone": "RZ24B",
+                "resultDetail": "00",
+                "tempRpcId": "0.2.5",
+                "rpcId": "0.2.5",
+                "key": 3
+            }],
+            "tempRpcId": "0.2",
+            "rpcId": "0.2",
+            "key": 2
+        }],
+        "tempRpcId": "0",
+        "rpcId": "0",
+        "key": 1
+    }],
+    "appName": "USER",
+    "rpcId": "root",
+    "key": 0
+}
