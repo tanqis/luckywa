@@ -1,22 +1,28 @@
-const title = 'luckywa'
-const port = '8088'
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? '' : '',
-    // assetsDir: '/static',
-    //自定义端口号
+    // assetsDir: 'static',
+    lintOnSave: true,
+    runtimeCompiler: true,
+    productionSourceMap: false,
     devServer: {
-        port,
-        proxy: 'http://localhost:8087/',
-        //  {
-        // '/api': {
-        //     target: ,
-        //     ws: true,
-        //     changeOrigin: true
-        // }
-        // },
+        port: process.env.VUE_APP_PROT,
+        proxy: {
+            '/': {
+                target: 'http://localhost:8087/',
+                changeOrigin: true,
+                // pathRewrite: {
+                //     '^/nApi': ''
+                // }
+            },
+            '/ws': {
+                target: 'ws://localhost:8087/ws',
+                ws: true,
+                // changeOrigin: true
+            },
+        }
     },
     //自定义变量
     configureWebpack: {
-        name: title
+        name: process.env.VUE_APP_TITLE
     }
 }

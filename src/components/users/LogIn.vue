@@ -43,8 +43,12 @@ export default {
   },
   data() {
     return {
-      logInForm: {}
+      logInForm: {},
+      redirect: ""
     };
+  },
+  created() {
+    this.redirect = this.$route.query.redirect;
   },
   methods: {
     onClickLeft() {
@@ -52,14 +56,15 @@ export default {
     },
     userLogIn() {
       const rex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-      // if (Tool.isNull(this.logInForm.userEmail)) {
-      //   Notify({ type: 'warning', message: '请输入账号' });
-      //   return;
-      // } else if (!rex.test(this.logInForm.userEmail)) {
+      if (Tool.isNull(this.logInForm.userAccount)) {
+        Notify({ type: "warning", message: "请输入账号" });
+        return;
+      }
+      //  else if (!rex.test(this.logInForm.userEmail)) {
       //   Notify({ type: 'warning', message: '请输入正确的邮箱账号' });
       //   return;
       // } else
-      if (Tool.isNull(this.logInForm.userPwd)) {
+      else if (Tool.isNull(this.logInForm.userPwd)) {
         Notify({ type: "warning", message: "请输入密码" });
         return;
       } else if (
@@ -69,15 +74,18 @@ export default {
         Notify({ type: "warning", message: "请输入8-16位数密码" });
         return;
       }
-
       this.$axios
         .post(this.$url.userLogIn, this.logInForm)
         .then(msg => {
-          const data = msg.data;
-          if (data.code === 200 && data.status === false) {
-            Notify({ type: `warning`, message: data.msg });
+          const datas = msg.data;
+          if (datas.status) {
+            Notify({ type: `success`, message: datas.msg });
+            this.$store.commit("logIn", datas.data);
+            if (this.redirect) {
+              this.$router.push(this.redirect);
+            }
           } else {
-            Notify({ type: `success`, message: `登录成功` });
+            Notify({ type: `warning`, message: datas.msg });
           }
         })
         .catch(err => {

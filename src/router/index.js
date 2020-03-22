@@ -1,69 +1,31 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-//finance
-// import FinanceMap from '@/components/finance/FinanceMap'
-
-//lineAccounts
-// import Accounts from '@/components/lineAccounts/Index'
-
-//lifeDays
-// import LifeDays from '@/components/lifeDays/Index'
-
-
-//myself
-// import Myself from '@/components/myself/Index'
-
-//toDos
-// import ToDos from '@/components/toDos/Index'
-
-//toolHelp
-// import ToolHelp from '@/components/toolHelp/Index'
-// import ActiveAnimat from '@/components/toolHelp/ActiveAnimat'
-// import FontHelp from '@/components/toolHelp/FontHelp'
-
-
-//financialCalculations 
-// import Calculatioins from '@/components/financialCalculations/Calculatioins'
-
 Vue.use(Router);
 
-export default new Router({
-  routes: [
-    // component: () => import('@/components/HelloWorld.vue')
-    {
-      // default
+const router = new Router({
+  routes: [{
       path: '/',
       name: 'root',
       component: () => import('@/components/frame/Index'),
       redirect: {
-        name: 'index'
+        name: 'Index'
       },
       children: [{
           path: '/index',
-          name: 'index',
+          name: 'Index',
           component: () => import('@/components/frame/Main')
         },
         // {
         //   path: '/fontHelp',
         //   name: 'FontHelp',
-        //   component: FontHelp
+        //   component: () => import("@/components/toolHelp/Index")
         // },
         // {
         //   path: '/financeMap',
         //   name: 'FinanceMap',
-        //   component: FinanceMap
-        // },
-        // {
-        //   path: '/accounts',
-        //   name: 'Accounts',
-        //   component: Accounts
-        // },
-        // {
-        //   path: '/lifeDays',
-        //   name: 'LifeDays',
-        //   component: LifeDays
-        // },
+        //   component: () => import('@/components/finance/FinanceMap')
+        // }, 
         {
           path: '/mindMap',
           name: 'MindMapList',
@@ -79,40 +41,49 @@ export default new Router({
           name: 'MindMapManage',
           component: () => import('@/components/mindMap/MindMapManage')
         },
-        // {
-        //   path: '/myself',
-        //   name: 'Myself',
-        //   component: Myself
-        // },
-        // {
-        //   path: '/toolHelp',
-        //   name: 'ToolHelp',
-        //   component: ToolHelp
-        // },
+        {
+          path: '/about',
+          name: 'About',
+          component: () => import('@/components/about/About')
+        },
+        {
+          path: '/toolHelp/ws',
+          name: 'ToolHelp',
+          component: () => import("@/components/toolHelp/Ws")
+        },
         // {
         //   path: '/activeAnimat',
         //   name: 'ActiveAnimat',
-        //   component: ActiveAnimat
+        //   component: () => import("@/components/toolHelp/ActiveAnimat")
         // },
-        // {
-        //   path: '/toDos',
-        //   name: 'ToDos',
-        //   component: ToDos
-        // }
+        {
+          path: '/todosList',
+          name: 'TodosList',
+          component: () => import('@/components/toDos/Index')
+        },
+        {
+          path: '/todosManage',
+          name: 'TodosManage',
+          component: () => import('@/components/toDos/TodosManage')
+        },
         {
           path: '/calculatioinsList',
           name: 'CalculatioinsList',
           component: () => import('@/components/financialCalculations/CalculatioinsList')
-
         },
-        // ,{
+        // {
         //   path: '/calculatioins',
         //   name: 'Calculatioins',
-        //   component: Calculatioins
-        // }, 
+        //   component: () => import('@/components/financialCalculations/Calculatioins')
+        // },
+        {
+          path: '/user/userList',
+          name: 'UserList',
+          component: () => import('@/components/users/UserList')
+        },
         {
           path: '/user/logIn',
-          name: 'user',
+          name: 'User',
           component: () => import('@/components/users/LogIn')
         }, {
           path: '/user/register',
@@ -126,6 +97,10 @@ export default new Router({
           path: '/user/forgetPwd',
           name: 'ForgetPwd',
           component: () => import('@/components/users/ForgetPwd'),
+        }, {
+          path: '/user/updatePwd',
+          name: 'UpdatePwd',
+          component: () => import('@/components/users/UpdatePwd'),
         }
       ]
     },
@@ -136,3 +111,24 @@ export default new Router({
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.path !== "/index" && to.path !== "/user/logIn" && to.path !== "/user/register") { // 判断该路由是否需要登录权限
+    // console.log(router.app.$store.state.Authorization)
+    let token = localStorage.getItem('Authorization');
+    if (token === null || token === '') {
+      next({
+        path: '/user/logIn',
+        query: {
+          redirect: to.fullPath // 将跳转的路由path作为参数，登录成功后跳转到该路由
+        }
+      })
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+})
+
+export default router

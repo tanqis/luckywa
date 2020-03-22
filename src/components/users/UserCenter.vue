@@ -18,7 +18,7 @@
           <van-col span="16">
             昵称
             <br />
-            stq***23@163.com
+            {{userInfo.userAccount||''}}
           </van-col>
         </van-row>
       </van-cell>
@@ -49,19 +49,31 @@
                 is-link
                 value="" />
       <!-- <van-divider></van-divider> -->
-      <van-cell clickable
+      <!-- <van-cell v-if='!hasToken'
+                clickable
                 style="margin-top:10px;"
                 to="/user/logIn">
         <div solt="default"
              style="text-align:center;">
           登录
         </div>
-      </van-cell>
-      <van-cell clickable>
+      </van-cell> -->
+      <van-cell v-if='hasToken'
+                clickable
+                style="margin-top:10px;">
         <div solt="default"
-             style="text-align:center;">切换账号</div>
+             style="text-align:center;"
+             @click="switchAccount">切换账号</div>
       </van-cell>
-      <van-cell clickable
+      <van-cell v-if='hasToken'
+                clickable
+                style="margin-top:10px;">
+        <div solt="default"
+             style="text-align:center;"
+             @click="updatePwd">修改密码</div>
+      </van-cell>
+      <van-cell v-if='hasToken'
+                clickable
                 @click="logOut">
         <div solt="default"
              style="text-align:center;">退出</div>
@@ -72,7 +84,7 @@
 
 <script>
 // Divider,
-import { NavBar, Cell, CellGroup, Row, Col, Image } from "vant";
+import { NavBar, Cell, CellGroup, Row, Col, Image, Notify } from "vant";
 export default {
   name: "UserCenter",
   components: {
@@ -87,26 +99,60 @@ export default {
     vanCol: Col
   },
   data() {
-    return {};
+    return {
+      hasToken: false,
+      userInfo: {}
+    };
+  },
+  created() {},
+  mounted() {
+    this.hasToken = this.$store.state.Authorization ? true : false;
+    if (this.hasToken) {
+      // this.getBaseData()
+    }
   },
   methods: {
+    getBaseData() {
+      this.$axios.get(this.$url.queryAllById).then(msg => {
+        const datas = msg.data;
+        if (datas.status) {
+          this.userInfo = datas.data[0];
+        } else {
+          Notify({ type: `warning`, message: datas.msg });
+        }
+      });
+    },
     onClickLeft() {
       this.$router.push("/index");
     },
+    switchAccount() {
+      Notify({ type: `success`, message: "退出成功,请登录" });
+      this.$store.commit("logOut");
+      this.$router.push("/user/logIn");
+    },
+    updatePwd() {
+      this.$router.push("/user/updatePwd");
+    },
     logOut() {
-      this.$axios
-        .get(this.$url.userLogOut)
-        .then(msg => {
-          console.error("logOut");
-        })
-        .catch(error => {
-          console.error("logOut error");
-        });
+      Notify({ type: `success`, message: "退出成功" });
+      this.$store.commit("logOut");
+      this.$router.push("/");
+      // this.$axios
+      //   .get(this.$url.userLogOut)
+      //   .then(msg => {
+      //     const datas = msg.data;
+      //     if (datas.status) {
+      //       Notify({ type: `success`, message: datas.msg });
+      //       this.$store.commit("logOut");
+      //     } else {
+      //       Notify({ type: `warning`, message: datas.msg });
+      //     }
+      //     this.$router.push("/");
+      //   })
+      //   .catch(error => {
+      //     Notify({ type: `danger`, message: `登录异常，请联系管理员` });
+      //   });
     }
   }
 };
 </script>
-<style lang="less" socped>
-.UserCenter {
-}
-</style>

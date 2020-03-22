@@ -1,19 +1,8 @@
 <template>
   <div class="todosBox">
-
-    <el-checkbox-group v-model="checkedCities">
-      <!-- <el-checkbox v-model="checkAll"
-                   @change="handleCheckAllChange">全选</el-checkbox> -->
-      <el-checkbox v-for="city in cities"
-                   :label="city"
-                   :key="city">{{city}}</el-checkbox>
-    </el-checkbox-group>
-    <div class="todosOption">
-      <el-button size="mini">取消</el-button>
-      <el-button type="primary"
-                 @click="fn"
-                 size="mini">完成</el-button>
+    <div @click="$router.push('/todosManage')">+
     </div>
+
   </div>
 </template>
 <script>

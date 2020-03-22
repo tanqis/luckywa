@@ -1,55 +1,63 @@
 <template>
   <div class="CalculatioinsList">
-    <van-nav-bar title="金融计算列表"
+    <van-sticky>
+    <van-nav-bar title="商品期货统计"
                  left-text="返回"
                  right-text=""
                  left-arrow
                  @click-left="onClickLeft" />
-    <el-card shadow="always"
-             class="box-card">
-      <div slot="header"
-           class="clearfix">
-        <span>添加产品</span>
-      </div>
-      <div @click="$router.push('./Calculatioins')">
-        +
-      </div>
-    </el-card>
-
-    <el-card shadow="always"
-             class="box-card"
-             v-for="(item,index) in productData"
-             :key="index">
-      <div slot="header"
-           class="clearfix">
-        <span>{{item.productId}}({{item.productName}})</span>
-        <i class="el-icon-delete"
-           style="float: right; padding: 3px 0"
-           @click="delProduct(item)"></i>
-      </div>
-      <div @click="$router.push('./Calculatioins?id='+item._id)">
-        {{'操作次数：' + item.productPriceArrs.length }}
-      </div>
-    </el-card>
-
+     </van-sticky>
+      <van-list v-model="loading"
+              :finished="finished"
+              finished-text="没有更多了"
+              @load="onLoad">
+          <van-cell v-for="(item,index) in dataList"
+                :key="index"
+                :title="item.UserAccount"
+                :value="item.UserStatus===1?'有效':'冻结'"
+                :label="item.UpdateTime" />
+    </van-list>
   </div>
 </template>
 <script>
-import { NavBar } from "vant";
+import { NavBar, Cell, Notify, Sticky, List } from "vant";
+import Tool from "@/assets/js/tool";
 export default {
   name: "CalculatioinsList",
   components: {
-    vanNavBar: NavBar
+    vanNavBar: NavBar,
+    vanCell: Cell,
+    vanSticky: Sticky,
+    vanList: List
   },
   data() {
-    return {
-      productData: []
+    return { 
+      dataList: [],
+      loading: false,
+      finished: false
     };
   },
-  created() {
-    this.loadListData();
-  },
+  
   methods: {
+    onLoad() {
+      this.$axios
+        .get(this.$url.futuresQueryAll)
+        .then(msg => {
+          const datas = msg.data;
+          if (datas.status) {
+            this.list = datas.data;
+          } else {
+            Notify({ type: `warning`, message: datas.msg });
+          }
+          this.loading = false;
+          this.finished = true;
+        })
+        .catch(err => {
+          Notify({ type: `danger`, message: `登录异常，请联系管理员` });
+          this.loading = false;
+          this.finished = true;
+        }); 
+    },
     delProduct(item) {
       this.$confirm("确认删除该记录?", "提示", {
         confirmButtonText: "确定",

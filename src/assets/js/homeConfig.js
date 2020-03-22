@@ -7,25 +7,11 @@ let datas = {
             "url": "/calculatioinsList"
         },
         {
-            "name": "个人简介",
-            "style": "",
-            "icon": "like-o",
-            "class": "miniWidth",
-            "url": "/myself"
-        },
-        {
             "name": "代办事项",
             "style": "",
             "icon": "like-o",
             "class": "miniWidth",
-            "url": "/toDos"
-        },
-        {
-            "name": "在线记账",
-            "style": "",
-            "icon": "like-o",
-            "class": "miniWidth",
-            "url": "/accounts"
+            "url": "/todosList"
         },
         {
             "name": "思维导图",
@@ -35,25 +21,32 @@ let datas = {
             "url": "/mindMap"
         },
         {
-            "name": "生活日记",
-            "style": "",
-            "icon": "like-o",
-            "class": "miniWidth",
-            "url": "/lifeDays"
-        },
-        {
-            "name": "首页事项",
-            "style": "",
-            "icon": "like-o",
-            "class": "miniWidth",
-            "url": "/homeToDos"
-        },
-        {
             "name": "工具辅助",
             "style": "",
             "icon": "like-o",
             "class": "",
             "url": "/toolHelp"
+        },
+        {
+            "name": "WS聊天",
+            "style": "",
+            "icon": "like-o",
+            "class": "",
+            "url": "/toolHelp/ws"
+        },
+        {
+            "name": "用户列表",
+            "style": "",
+            "icon": "like-o",
+            "class": "",
+            "url": "/user/userList"
+        },
+        {
+            "name": "关于",
+            "style": "",
+            "icon": "like-o",
+            "class": "miniWidth",
+            "url": "/about"
         }
     ],
     carousels: [
