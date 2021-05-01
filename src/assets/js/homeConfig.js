@@ -1,18 +1,18 @@
 let datas = {
     menus: [{
-            "name": "金融计算",
+            "name": "小记录",
             "style": "",
             "icon": "like-o",
             "class": "",
             "url": "/calculatioinsList"
         },
-        {
-            "name": "代办事项",
-            "style": "",
-            "icon": "like-o",
-            "class": "miniWidth",
-            "url": "/todosList"
-        },
+        // {
+        //     "name": "代办事项",
+        //     "style": "",
+        //     "icon": "like-o",
+        //     "class": "miniWidth",
+        //     "url": "/todosList"
+        // },
         {
             "name": "思维导图",
             "style": "",
@@ -20,13 +20,13 @@ let datas = {
             "class": "miniWidth",
             "url": "/mindMap"
         },
-        {
-            "name": "工具辅助",
-            "style": "",
-            "icon": "like-o",
-            "class": "",
-            "url": "/toolHelp"
-        },
+        // {
+        //     "name": "工具辅助",
+        //     "style": "",
+        //     "icon": "like-o",
+        //     "class": "",
+        //     "url": "/toolHelp"
+        // },
         {
             "name": "WS聊天",
             "style": "",
@@ -34,13 +34,13 @@ let datas = {
             "class": "",
             "url": "/toolHelp/ws"
         },
-        {
-            "name": "用户列表",
-            "style": "",
-            "icon": "like-o",
-            "class": "",
-            "url": "/user/userList"
-        },
+        // {
+        //     "name": "用户列表",
+        //     "style": "",
+        //     "icon": "like-o",
+        //     "class": "",
+        //     "url": "/user/userList"
+        // },
         {
             "name": "关于",
             "style": "",
@@ -50,7 +50,7 @@ let datas = {
         }
     ],
     carousels: [
-        ["本栏目放站内公告"],
+        ["本栏目放最新记录文章"],
         ["本栏目放每日一句英语+美图"]
     ],
     colors: [

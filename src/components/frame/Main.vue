@@ -29,7 +29,7 @@
                     background="#ecf9ff"
                     left-icon="volume-o" />
 
-    <van-panel class="newsBoxs"
+    <!-- <van-panel class="newsBoxs"
                title="宗旨"
                desc=""
                status="">
@@ -37,7 +37,7 @@
         <p class="left">搞钱搞钱搞钱，一切都是是为了搞钱</p>
         <p class="right">--《系统》</p>
       </div>
-    </van-panel>
+    </van-panel> -->
 
     <van-panel class="newsBoxs"
                title="自省"
@@ -62,17 +62,6 @@
       </div>
     </van-panel>
     <van-panel class="newsBoxs"
-               title="小伙伴招募"
-               desc="有偿开发"
-               status="有效">
-      <div>
-        <p class="left">
-          当前网站正在紧急开发中，有兴趣小伙伴可以加入一起完成。
-        </p>
-        <p class="right">联系方式-->个人简介</p>
-      </div>
-    </van-panel>
-    <van-panel class="newsBoxs"
                title="空白"
                desc=""
                status="">
@@ -83,7 +72,17 @@
         <p class="right">--</p>
       </div>
     </van-panel>
-    <van-divider>我是有底线的</van-divider>
+    <!-- <div style="width:300px;margin:0 auto; padding:20px 0;">
+
+    </div> -->
+
+    <van-divider><img alt="备案图标"
+           :src="require('@/assets/imgs/batb.png') "> <a target="_blank"
+         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030902001982"
+         style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src=""
+             style="float:left;" />
+        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44030902001982号</p>
+      </a></van-divider>
   </div>
 </template>
 <script>
@@ -167,6 +166,9 @@ export default {
     .right {
       text-align: right;
     }
+  }
+  a {
+    color: #8f8f8f;
   }
 }
 </style>
